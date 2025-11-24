@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main # ⭐️Git 브랜치 이름을 확인하세요. (main이 맞다면 그대로 둡니다.)
+
+media_folder: "static/images" # 웹사이트의 이미지 폴더 경로 확인 후 필요 시 수정하세요.
+public_folder: "/images" # 웹사이트에서 이미지를 보여줄 경로 확인 후 필요 시 수정하세요.
+
+collections:
+  - name: "blog"
+    label: "블로그 포스팅"
+    folder: "content/posts" # ⭐️주의: 이 경로를 지원이 웹사이트의 실제 포스팅 저장 폴더 경로로 반드시 수정해야 합니다.⭐️
+    create: true 
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "제목", name: "title", widget: "string"}
+      - {label: "날짜", name: "date", widget: "datetime"}
+      - {label: "태그", name: "tags", widget: "list", required: false}
+      - {label: "본문", name: "body", widget: "markdown"}
